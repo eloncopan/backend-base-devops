@@ -25,6 +25,11 @@ pipeline{
 					}
 				}
 			}
+		}
+		stage("Despliegue"){
+			steps{
+				sh 'docker build -t backend-base-devops:latest .'
+			}
 		}	
 	}	
 }
