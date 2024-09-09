@@ -1,2 +1,10 @@
-# backend-base-devops
-Tarea 4
+Readme.md
+# backend-base
+instalar dependencias
+npm install
+
+ejecutar test
+npm run test
+
+hacer build
+npm run build
