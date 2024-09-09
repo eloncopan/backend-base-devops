@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	stages{
-		stage("Instala node"){
+		stage("Construye, prueba y despliega"){
 			agent{
 				docker {
 					image "node:20.11-alpine3.19"
@@ -12,6 +12,11 @@ pipeline{
 				stage("Instala dependencias"){ 
 					steps{
 						sh 'npm install'
+					}
+				}
+				stage("Ejecuta pruebas"){ 
+					steps{
+						sh 'npm run test'
 					}
 				}
 			}
