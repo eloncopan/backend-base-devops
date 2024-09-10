@@ -28,7 +28,7 @@ pipeline{
 		}
 		stage("Despliegue y envío a nexus"){
 			steps{
-				sh 'docker build -t backend-base-devops:latest .'
+				sh 'docker build -t backend-base-devops:latest'
 				sh 'docker tag backend-base-devops:latest localhost:8082/backend-base-devops:latest'
 				sh 'docker login -u admin -p admin123 localhost:8082'
 				sh 'docker push localhost:8082/backend-base-devops:latest'
