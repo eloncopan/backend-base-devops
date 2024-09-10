@@ -1,5 +1,10 @@
 pipeline{
 	agent any
+	environment{
+		USERNAME='ELG'
+		PORT=3001
+		API_KEY=123456
+	}
 	stages{
 		stage("Construye, prueba y despliega"){
 			agent{
