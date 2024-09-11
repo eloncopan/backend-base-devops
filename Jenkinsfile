@@ -35,9 +35,20 @@ pipeline{
 			}
 		}
 		stage('Calidad del codigo'){
-			steps{
-				withSonarQubeEnv('sonarqube'){
-					sh 'sonar-scanner'
+			stages{
+				stage('análisis Sonar'){
+					agent {
+						docker{
+							image 'sonarsource/sonar-scanner-cli'
+							args '--network=backend-base-devops_default'
+							reuseNode true
+						}
+					}
+					steps{
+						withSonarQubeEnv('sonarqube'){
+							sh 'sonar-scanner'
+						}
+					}
 				}
 			}
 		}
