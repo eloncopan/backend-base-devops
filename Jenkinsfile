@@ -5,6 +5,9 @@ pipeline{
 		PORT=3001
 		API_KEY=123456
 	}
+	options{
+		disableConcurrentBuilds()
+	}
 	stages{
 		stage("Construye, prueba y despliega"){
 			agent{
