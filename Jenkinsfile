@@ -34,6 +34,13 @@ pipeline{
 				}
 			}
 		}
+		stage('Calidad del codigo'){
+			steps{
+				withSonarQubeEnv('sonarqube'){
+					sh 'sonar-scanner'
+				}
+			}
+		}
 		stage("Entrega"){
 			steps{
 				script{
