@@ -40,13 +40,13 @@ pipeline{
 					agent {
 						docker{
 							image 'sonarsource/sonar-scanner-cli'
-							args '--network=devops-infra_default'
+							args '--network="devops-infra_default"'
 							reuseNode true
 						}
 					}
 					steps{
 						withSonarQubeEnv('sonar'){
-							sh 'sonar-scanner'
+							sh 'sonar-scanner -X'
 						}
 					}
 				}
