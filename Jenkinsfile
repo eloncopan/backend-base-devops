@@ -45,6 +45,13 @@ pipeline{
 						}
 					}
 				}
+				stage('Puerta de calidad'){
+					steps{
+						timeout(time:1, unit: 'MINUTES'){
+							waitForQualityGate abortPipeline: true
+						}
+					}
+				}
 			}
 		}
 		stage("Entrega"){
